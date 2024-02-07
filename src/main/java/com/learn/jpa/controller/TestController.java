@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class TestController {
 
@@ -14,7 +16,7 @@ public class TestController {
     EngineRepoImpl engineRepo;
 
     @GetMapping("hi")
-    public Engine getEngine(){
-        return engineRepo.findById(1);
+    public List<String> getEngine(){
+        return engineRepo.findByType("petrol","2010");
     }
 }
