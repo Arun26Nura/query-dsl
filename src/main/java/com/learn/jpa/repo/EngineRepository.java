@@ -8,21 +8,19 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public class EngineRepositoryImpl extends SimpleJpaRepository<Engine,Integer>  {
+public class EngineRepository extends SimpleJpaRepository<Engine,Integer>  {
     @Autowired
     JPAQueryFactory jpaQueryFactory;
 
     QEngine engine= QEngine.engine;
     QMotorcycle motorcycle= QMotorcycle.motorcycle;
 
-    public EngineRepositoryImpl( EntityManager entityManager) {
+    public EngineRepository(EntityManager entityManager) {
         super(Engine.class, entityManager);
     }
 
